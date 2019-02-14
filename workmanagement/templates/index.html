@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>{{t}}</title> <!--요부부분은 jinja로 이루어진 변동 -->
+        <!-- href="/static/assets/style.css"-->
+        <link rel="stylesheet" type="text/css"  href="{{ url_for('static',filename='assets/style.css')}}" >
+        <link rel="stylesheet" type="text/css"  href="{{ url_for('static',filename='assets/emoji.css')}}" >
+        <script src="{{ url_for('static',filename='assets/twemoji.min.js')}}"></script>  
+        <script src="{{ url_for('static',filename='assets/emoji.js')}}"></script>
+    </head>
+<body>
+    <h3>{{ h }}</h3>
+    <ul>
+        <li><a href="/list" class="{{ a1 }}">전체리스트</a></li>
+        <li><a href="/uncompleted" class="{{ a2 }}"> 미완료 </a></li>
+        <li><a href="/completed" class="{{ a3 }}"> 완료 </a></li>
+        <li><a href="/sorting" class="{{a4}}">날짜별정렬</a></li>
+        <li style="float:right"><a href="/about">설명</a></li>
+    </ul>
+    <hr>
+    {% if todos[0] %}
+    <b><big>작업리스트 :</big></b>
+    
+    <table>
+        <tr id="row">
+            <th class="status">상태</th>
+            <th class="name">작업명</th>
+            <th class="desc">설명</th>
+            <th class="date">날짜</th>
+            <th class="pr">우선순위</th>
+        <tr class="func1">제거</tr>
+        <th class="func2">수정</th>
+        </tr>
+    {% for todo in todos %}
+        <tr class="datas">
+            <td><a href="./done?_id={{ todo['_id']}}"><input type="image"
+                src="static/images/{{todo['done']}}.png" alt="제출"></a></td>
+            <td class="name">{{ todo["name"] }}</td>
+            <td class="desc">{{ todo["desc"] }}</td>
+            <td class="date">{{ todo["date"] }}</td>
+            <td class="pr">{{ todo["pr"] }} </td>
+            <td class="func1"><a href="./remove?_id={{ todo['_id']}}"><button type="submit">삭제</button></a></td>
+            <td class="func2"><a href="./update?_id={{todo['_id']}}"><button type="submit">수정</button></a> </td>
+        </tr>
+    {% endfor %}
+    </table>
+    {% else %}
+    <h4>리스트 없음!!</h4>
+    {% endif %}
+    <hr/>
+    <form action="/action" method="POST">
+        <table class="none">
+            <tr>
+                <td><b><big><label>작업추가 : </label></big></b></td>
+            </tr>
+            <tr>
+            <td><input type="text" name="name" placeholder="작업명" /></td>
+            <td><textarea name="desc" rows="1" cols="30" placeholder="설명입력란" required></textarea></td>
+            <td><input type="text" name="date" placeholder="날짜" /></td>
+            <td><input type="text" name="pr" placeholder="우선순위" /></td>
+            <td><button type="submit">생성</button></td>
+            </tr>
+        </form>
+        </table>
+    </body>
+</html>
+
+

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block explain_contents %}
+
+<div class="container">
+  <h3>Tabs With Dropdown Menu</h3>
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="active"><a href="#hometab" role="tab" data-toggle="tab">Home</a></li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu 1 <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="#jabatab" role="tab" data-toggle="tab">자바이해</a></li>
+        <li><a href="#csharptab" role="tab" data-toggle="tab">C#이해</a></li>
+        <li><a href="#mysqltap" role="tab" data-toggle="tab">mysqld이해</a></li>                        
+      </ul>
+    </li>
+    <li><a href="#jquerytab" role="tab" data-toggle="tab">jQuery이해</a></li> 
+    <li><a href="#bootstab" role="tab" data-toggle="tab">Bootstrap 3</a></li> 
+  </ul>
+</div>
+<div class="tab-content">
+    <div class="tab-pane active" id="hometab"><div>학습프로그램</div><div>학습프로그램 이해</div>
+    <div class="tab-pane" id="javatab">자바 교육</div>
+        <div> 자바교육 </div>
+        <div> 자바는 객체 지향언어로 VM상에서 돌아가는 방식이기 때문에 기종호환성이 뛰어남교육 </div>
+        <div> <img src="{{ url_for('static', filename='photo.jpg')}}" >  </div>
+    </div>
+    <div class="tab-pane" id="csharp">C# 교육 </div>
+    <div class="tab-pane" id="mysqltap">mysql 교육.</div>
+
+    <div class="tab-pane" id="jquerytap">javascript</div>
+    <div class="tab-pane" id="Bootstrap">Bootstrap 학습
+        <ul>
+            <li>Bootstrap forms</li>
+            <li>Bootstrap button</li>
+            <li>Bootstrap navbar</li>
+            <li>Bootstrap footer</li>
+        </ul>
+    </div>
+    <div class="tap-pane" id="htmltab">HTML학습 </div>
+</div>  
+{% endblock explain_contents %}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html  lang="ko">
+<head>
+  <title>에이콘 아카데미</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  {% block header %}
+  {% endblock header %}
+</head>
+<body bgcolor="#ff00ff" text="#000000" link="blue" vlink="#00ff00" alink="rgb(0,0,255)">
+<nav class= "navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#"> 에이콘 아카데미 </a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="http://127.0.0.1:5000">Home</a></li>
+            <li><a href="http://127.0.0.1:5000/image_map">이미지맵</a></li>
+            <li><a href="http://127.0.0.1:5000/table">테이블예</a></li>
+            <li><a href="http://127.0.0.1:5000/acorn_academy">acorn_academy</a></li>
+            <li><a href="http://127.0.0.1:5000/js_for">반복문</a>/</li>
+            <li><a href="http://127.0.0.1:5000/form_select">폼(select)</a></li>
+            <li><a href="http://127.0.0.1:5000/sungjuk">성적테이블</a></li>
+            <li><a href="http://127.0.0.1:5000/javascript_test">자바스크립트1</a></li>
+
+            <li><a href="http://127.0.0.1:5000/bootstrap1">딥러닝과정</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://127.0.0.1:5000/regist"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+            <li><a href="http://127.0.0.1:5000/"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+        </ul>
+    </div>
+</nav>  
+{% block title %}  
+{% endblock title %}
+{% block contents %}
+{% endblock contents %}
+{% block explain_contents %}
+    내용이 있다고 하더라도
+{% endblock explain_contents%}
+<center> 이 홈페이지는 flask 교육을 위해 제작되었습니다.
+    <h3> 에이콘 아카데미></h3></center>
+</body>
+</html>
